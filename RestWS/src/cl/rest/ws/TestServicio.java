@@ -22,20 +22,15 @@ public class TestServicio {
 	@Produces({"application/xml"})
 	public Response printMessage(@PathParam("param") String nombre, @PathParam("param1") String apellido) {
 
-		Resources resu = new Resources();
-		resu.setNombre(nombre);
-		resu.setApellido(apellido);
 		
-		
-		
-		String result = resu.toString();
+		String result = "Hola "+nombre+" "+apellido;
 		//return result;
 		
 		//Retorno texto
-		//return Response.status(200).entity(result).build();
+		return Response.status(200).entity(result).build();
 		
 		//Retorno XML
-		 return Response.status(200).type(MediaType.APPLICATION_XML).entity(resu).build();
+		 //return Response.status(200).type(MediaType.APPLICATION_XML).entity(resu).build();
 		
 
 	}
