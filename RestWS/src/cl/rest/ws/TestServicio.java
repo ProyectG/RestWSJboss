@@ -1,6 +1,7 @@
 package cl.rest.ws;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -19,12 +20,20 @@ public class TestServicio {
 	
 	 	@Path("xml")
 	    @POST
-	    @Consumes({MediaType.APPLICATION_XML})
-	 	public void printMessage(Student s)
+	    @Consumes("application/xml")
+	 	@Produces("application/xml")
+	 	public void printMessage(byte[] xml)
 	    {
-	        System.out.println("****Mensaje*****");
-	        System.out.println("nombre : "+s.getName());
-	        System.out.println("edad  : "+s.getAge());
+	 		try {
+				String s = new String(xml, "ISO-8859-1");
+				System.out.println(s);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	 		
+//	        StudentResponse sr = new StudentResponse(s);
+//	        return sr;
 	    }
 	 	
 	 	@Path("json")
