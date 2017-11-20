@@ -17,14 +17,24 @@ import javax.ws.rs.core.Response;
 public class TestServicio {
 	
 	
-	 	@Path("both")
+	 	@Path("xml")
 	    @POST
-	    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+	    @Consumes({MediaType.APPLICATION_XML})
 	 	public void printMessage(Student s)
 	    {
-	        System.out.println("****Student Details*****");
-	        System.out.println("Student Name : "+s.getName());
-	        System.out.println("Student Age  : "+s.getAge());
+	        System.out.println("****Mensaje*****");
+	        System.out.println("nombre : "+s.getName());
+	        System.out.println("edad  : "+s.getAge());
+	    }
+	 	
+	 	@Path("json")
+	    @POST
+	    @Consumes({MediaType.APPLICATION_JSON})
+	 	public void mensaje(Student s)
+	    {
+	        System.out.println("****Mensaje*****");
+	        System.out.println("nombre : "+s.getName());
+	        System.out.println("edad  : "+s.getAge());
 	    }
 	
 

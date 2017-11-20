@@ -10,14 +10,19 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 <!-- Auto scan REST service -->
-	<context-param>
+<!-- 	<context-param>
 		<param-name>resteasy.scan</param-name>
 		<param-value>true</param-value>
+	</context-param> -->
+	
+	<context-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>cl.rest.ws.TestServicio</param-value>
 	</context-param>
 
 	<context-param>
 		<param-name>resteasy.servlet.mapping.prefix</param-name>
-		<param-value>/nombre</param-value>
+		<param-value>/tipo</param-value>
 	</context-param>
 
 	<listener>
@@ -35,6 +40,6 @@
 
 	<servlet-mapping>
 		<servlet-name>resteasy-servlet</servlet-name>
-		<url-pattern>/nombre/*</url-pattern>
+		<url-pattern>/tipo/*</url-pattern>
 	</servlet-mapping>
 </web-app>
