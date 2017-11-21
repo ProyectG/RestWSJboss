@@ -27,7 +27,7 @@
   </build>
   <dependencies>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>2.2.1.GA</version>
@@ -44,6 +44,12 @@
 		    <artifactId>resteasy-jaxb-provider</artifactId>
 		    <version>3.0.4.Final</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>2.2.1.GA</version>
+		</dependency> -->
 		
 
 	</dependencies>

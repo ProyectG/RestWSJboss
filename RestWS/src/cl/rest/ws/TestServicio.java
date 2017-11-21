@@ -1,6 +1,8 @@
 package cl.rest.ws;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -13,6 +15,14 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import javax.xml.bind.Element;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.jdom.Document;
+import org.jdom.input.SAXBuilder;
+
+import net.sf.saxon.s9api.DocumentBuilder;
 
 @Path("/mensaje")
 public class TestServicio {
@@ -22,28 +32,54 @@ public class TestServicio {
 	    @POST
 	    @Consumes("application/xml")
 	 	@Produces("application/xml")
-	 	public void printMessage(byte[] xml)
+	 	public StudentResponse mensajeXml(Student xml)
 	    {
 	 		try {
-				String s = new String(xml, "ISO-8859-1");
-				System.out.println(s);
-			} catch (UnsupportedEncodingException e) {
+	 			
+	 			System.out.println(xml.getName().toString());
+	 			//System.out.println(xml.toString());
+	 			
+//				String s = new String(xml, "ISO-8859-1");
+//				Element xml2 = getElement(s);
+//				System.out.println(s);
+	 			//System.out.println(xml2.toString());
+				
+				
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	 		
-//	        StudentResponse sr = new StudentResponse(s);
-//	        return sr;
+	 		StudentResponse sr = new StudentResponse();
+	 		//return Response.status(Status.OK).entity(sr).build();
+//	        
+	        return sr;
 	    }
 	 	
 	 	@Path("json")
 	    @POST
 	    @Consumes({MediaType.APPLICATION_JSON})
-	 	public void mensaje(Student s)
+	 	@Produces({MediaType.APPLICATION_JSON})
+	 	public void mensajeJson(Student s)
 	    {
-	        System.out.println("****Mensaje*****");
-	        System.out.println("nombre : "+s.getName());
-	        System.out.println("edad  : "+s.getAge());
+	       
+	    }
+	 	
+	 	
+	 	
+	 	private Element getElement(String xml)
+	    {
+	        InputStream is = new ByteArrayInputStream(xml.getBytes());
+	        Element root = null;
+	        try
+	            {
+	                root = (Element) new SAXBuilder().build(is).getRootElement();
+	            }
+	            catch (Exception e1)
+	            {
+	                e1.printStackTrace();
+	            }
+	        return root;
 	    }
 	
 
