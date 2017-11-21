@@ -9,51 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<!-- Auto scan REST service -->
-<!-- 	<context-param>
-		<param-name>resteasy.scan</param-name>
-		<param-value>true</param-value>
-	</context-param> -->
-	
-<!-- 	<context-param>
-		<param-name>resteasy.resources</param-name>
-		<param-value>cl.rest.ws.TestServicio</param-value>
-	</context-param> -->
-
-<!-- 	<context-param>
-		<param-name>resteasy.servlet.mapping.prefix</param-name>
-		<param-value>/tipo</param-value>
-	</context-param>
-
-	<listener>
-		<listener-class>
-			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
-		</listener-class>
-	</listener>
-	
-	<servlet>
-        <servlet-name>tipo</servlet-name>
-        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
-        <init-param>
-            <param-name>javax.ws.rs.Application</param-name>
-            <param-value>cl.rest.ws.Application</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>  
-    </servlet>
-
-	<servlet>
-		<servlet-name>resteasy-servlet</servlet-name>
-		<servlet-class>
-			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-		</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>resteasy-servlet</servlet-name>
-		<url-pattern>/tipo/*</url-pattern>
-	</servlet-mapping> -->
-	
-	  <servlet>
+  <servlet>
     <description>JAX-RS Tools Generated - Do not modify</description>
     <servlet-name>RestServlet</servlet-name>
     <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
@@ -65,7 +21,7 @@
   </servlet-mapping>
   <context-param>
     <param-name>javax.ws.rs.Application</param-name>
-    <param-value>cl.rest.ws.Application</param-value>
+    <param-value>cl.ws.app.Root</param-value>
   </context-param>
   <listener>
     <listener-class>
