@@ -2,6 +2,7 @@ package cl.ws.data;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 @XmlRootElement
 public class TestDataResult {
 	
@@ -29,7 +30,7 @@ public class TestDataResult {
 		super();
 	}
 	
-	public TestDataResult(TestData parametros)
+	public TestDataResult( TestData parametros)
 	{
 		this.setNumero(parametros.getNumero());
 		if(parametros.getNumero() > 5)

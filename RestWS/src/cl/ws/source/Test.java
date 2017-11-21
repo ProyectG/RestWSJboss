@@ -14,8 +14,8 @@ import cl.ws.data.TestDataResult;
 public class Test {
 	
 	@POST
-	@Consumes({ MediaType.APPLICATION_XML })
-	@Produces({ MediaType.APPLICATION_XML })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public TestDataResult test( TestData parameters) {
 		
 		TestDataResult tdr = new TestDataResult(parameters);
