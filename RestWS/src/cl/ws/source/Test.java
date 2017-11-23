@@ -8,11 +8,14 @@ import javax.ws.rs.core.MediaType;
 
 import cl.ws.data.TestData;
 import cl.ws.data.TestDataResult;
+import cl.ws.data.TestNombre;
+import cl.ws.data.TestNombreResult;
 
 
 @Path("Test")
 public class Test {
 	
+	@Path("numero")
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -21,6 +24,17 @@ public class Test {
 		TestDataResult tdr = new TestDataResult(parameters);
 	
 		return tdr;
+	}
+	
+	
+	@Path("nombre")
+	@POST
+	@Consumes({MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_XML})
+	public TestNombreResult nombre(TestNombre parameters)
+	{
+		TestNombreResult tnr = new TestNombreResult(parameters);
+		return tnr;
 	}
 
 }
